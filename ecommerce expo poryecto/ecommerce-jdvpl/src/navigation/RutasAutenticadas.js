@@ -15,7 +15,23 @@ const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 const TabBar = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      initialRouteName="tienda"
+      tabBarOptions={{
+        inactiveTintColor: "#fff",
+        activeTintColor: "#fff",
+        style: {
+          borderTopLeftRadius: 60,
+          borderTopRightRadius: 60,
+          alignItems: "center",
+          backgroundColor: "#007aff",
+          paddingBottom: 5,
+        },
+      }}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color }) => mostarIcono(route, color),
+      })}
+    >
       <Tab.Screen
         component={TiendaStack}
         name="tienda"
@@ -37,6 +53,23 @@ const TabBar = () => {
   );
 };
 
+function mostarIcono(route, color) {
+  let iconName = "";
+  switch (route.name) {
+    case "tienda":
+      iconName = "cart-outline";
+      break;
+    case "cuenta":
+      iconName = "account-circle-outline";
+      break;
+    case "mitienda":
+      iconName = "cart-outline";
+      break;
+  }
+  return (
+    <Icon type="material-community" name={iconName} size={24} color={color} />
+  );
+}
 const RutasAutenticadas = () => {
   return (
     <NavigationContainer>
