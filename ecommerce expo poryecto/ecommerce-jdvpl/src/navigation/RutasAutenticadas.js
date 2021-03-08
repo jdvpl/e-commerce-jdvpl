@@ -9,6 +9,7 @@ import { Icon } from "react-native-elements";
 import TiendaStack from "./TiendaStack";
 import PerfilStack from "./PerfilStack";
 import MitiendaStack from "./MitiendaStack";
+import ShopBoton from "../components/ShopBoton";
 // aqui algunos componentes
 
 const Tab = createBottomTabNavigator();
@@ -41,7 +42,7 @@ const TabBar = () => {
       <Tab.Screen
         component={MitiendaStack}
         name="mitienda"
-        options={{ title: "" }}
+        options={{ title: "", tabBarIcon: () => <ShopBoton /> }}
       />
 
       <Tab.Screen
