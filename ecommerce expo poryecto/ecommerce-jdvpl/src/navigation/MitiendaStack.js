@@ -11,7 +11,8 @@ const MitiendaStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "#007aff", headerTintColor: "#fff" },
+        headerStyle: { backgroundColor: "#007aff" },
+        headerTintColor: "#fff",
       }}
     >
       <Stack.Screen
