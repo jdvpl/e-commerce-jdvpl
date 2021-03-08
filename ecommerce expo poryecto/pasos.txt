@@ -8,5 +8,20 @@ expo init nombre_poryecto ----escoger el que dice blank desde cero
 cd nombre-proyecto
 yarn start
 -abre servidor y presionamos en Run on Android device/emulator
+se crean las carpetas necesarias del proyecto completo
+src que va a contener todos los archivos funcionales como componente y entre otros
+-----------
+screens-Pantallas que va a contener el proyecto
+*cuenta
+*MItienda
+*profile
+*tienda
+
+-------
+Navigation*los conectores entre Pantallas
+---------
+utils-Codigo reusable
+-----
+components-Diferentes componentes
 
 
