@@ -25,3 +25,7 @@ utils-Codigo reusable
 components-Diferentes componentes
 
 
+****alertas***
+yarn add react-native-easy-toast
+
+

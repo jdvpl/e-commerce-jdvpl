@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
 import LoginFormulario from "../../components/LoginFormulario";
 import Toast from "react-native-easy-toast";
+import { ScrollView } from "react-native";
 
 const Login = () => {
   const toastref = useRef();
@@ -10,9 +11,11 @@ const Login = () => {
       <StatusBar backgroundColor="#1976D2" />
 
       <Image style={styles.logo} source={require("../../../assets/logo.png")} />
-      <Text style={styles.bienvenidos}>Bienvenidos !!</Text>
-      <LoginFormulario toastref={toastref} />
-      <Toast ref={toastref} position="center" opacity={0.9} />
+      <ScrollView>
+        <Text style={styles.bienvenidos}>Bienvenidos !!</Text>
+        <LoginFormulario toastref={toastref} />
+        <Toast ref={toastref} position="center" opacity={0.9} />
+      </ScrollView>
     </View>
   );
 };

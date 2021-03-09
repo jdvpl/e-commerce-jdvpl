@@ -1,26 +1,37 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Input, Button, Divider, SocialIcon } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import { validarCorreo } from "../utils/Utils";
+import { isEmpty } from "lodash";
+import { ScrollView } from "react-native-gesture-handler";
 
-const LoginFormulario = () => {
+const LoginFormulario = ({ toastref }) => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+
+  const inicarsesion = () => {
+    if (isEmpty(email) || isEmpty(password)) {
+      toastref.current.show("Debe Ingresar todos los campos");
+    } else if (!validarCorreo(email)) {
+      toastref.current.show("Por favor debes ingresar un correo correcto");
+    }
+  };
 
   return (
     <View style={styles.contenedor}>
       <View style={styles.vieww} />
+
       <Text style={styles.margen}>Iniciar Sesión</Text>
       <Input
+        name="email"
         containerStyle={styles.input}
         placeholder="Correo"
         keyboardType="visible-password"
         rightIcon={{
           type: "material-community",
-          name: "eye-outline",
+          name: "at",
           color: "#0D47A1",
-          onPress: () => alert("Por favor ingresar tu correo electronico"),
         }}
         leftIcon={{
           type: "material-community",
@@ -30,6 +41,7 @@ const LoginFormulario = () => {
         }}
       />
       <Input
+        name="password"
         containerStyle={styles.input}
         placeholder="Contraseña"
         leftIcon={{
@@ -49,6 +61,7 @@ const LoginFormulario = () => {
         title="Iniciar Sesion"
         containerStyle={styles.Btn}
         buttonStyle={{ backgroundColor: "#0D47A1" }}
+        onPress={() => inicarsesion()}
       />
       <Text style={styles.txtcuenta}>
         ¿No tienes cuenta?{" "}
