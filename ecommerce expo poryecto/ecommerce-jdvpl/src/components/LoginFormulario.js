@@ -4,7 +4,9 @@ import { Input, Button, Divider, SocialIcon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { validarCorreo } from "../utils/Utils";
 import { isEmpty } from "lodash";
-import { ScrollView } from "react-native-gesture-handler";
+import * as firebase from "firebase";
+
+import { validarSesion } from "../utils/Actions";
 
 const LoginFormulario = ({ toastref }) => {
   const [email, setemail] = useState("");
@@ -15,8 +17,20 @@ const LoginFormulario = ({ toastref }) => {
       toastref.current.show("Debe Ingresar todos los campos");
     } else if (!validarCorreo(email)) {
       toastref.current.show("Por favor debes ingresar un correo correcto");
+    } else {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          console.log(email + password + "kisamados");
+        })
+        .catch((err) => {
+          console.log(err);
+          toastref.current.show("Email o Contraseña incorrectas");
+        });
     }
   };
+  validarSesion();
 
   return (
     <View style={styles.contenedor}>
@@ -24,7 +38,7 @@ const LoginFormulario = ({ toastref }) => {
 
       <Text style={styles.margen}>Iniciar Sesión</Text>
       <Input
-        name="email"
+        name={email}
         containerStyle={styles.input}
         placeholder="Correo"
         keyboardType="visible-password"
@@ -41,7 +55,7 @@ const LoginFormulario = ({ toastref }) => {
         }}
       />
       <Input
-        name="password"
+        name={password}
         containerStyle={styles.input}
         placeholder="Contraseña"
         leftIcon={{
