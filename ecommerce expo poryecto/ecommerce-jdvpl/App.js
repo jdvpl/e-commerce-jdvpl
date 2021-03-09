@@ -2,9 +2,10 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import RutasAutenticadas from "./src/navigation/RutasAutenticadas";
+import RutasNoAutenticadas from "./src/navigation/RutasNoAutenticadas";
 
 export default function App() {
-  return <RutasAutenticadas />;
+  return <RutasNoAutenticadas />;
 }
 
 const styles = StyleSheet.create({
