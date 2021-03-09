@@ -1,11 +1,9 @@
 import React, { useRef } from "react";
 import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import LoginFormulario from "../../components/LoginFormulario";
 import Toast from "react-native-easy-toast";
 
 const Login = () => {
-  const navigation = useNavigation();
   const toastref = useRef();
   return (
     <View style={styles.contenedor}>
@@ -13,7 +11,8 @@ const Login = () => {
 
       <Image style={styles.logo} source={require("../../../assets/logo.png")} />
       <Text style={styles.bienvenidos}>Bienvenidos !!</Text>
-      <LoginFormulario />
+      <LoginFormulario toastref={toastref} />
+      <Toast ref={toastref} position="center" opacity={0.9} />
     </View>
   );
 };
