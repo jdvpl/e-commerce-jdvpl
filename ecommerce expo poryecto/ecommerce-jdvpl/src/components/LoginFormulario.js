@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { Icon, Input, Button, Divider } from "react-native-elements";
+import { Input, Button, Divider, SocialIcon } from "react-native-elements";
+import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
 
 const LoginFormulario = () => {
@@ -11,38 +12,78 @@ const LoginFormulario = () => {
     <View style={styles.contenedor}>
       <View style={styles.vieww} />
       <Text style={styles.margen}>Iniciar Sesión</Text>
-
-      <Input placeholder="Correo" keyboardType="email-address" />
-      <Input placeholder="Contraseña" keyboardType="ascii-capable" />
-      <Button title="Iniciar Sesion" />
-      <Text>
-        ¿No tienes cuenta? <Text>{""}Crear cuenta</Text>
+      <Input
+        containerStyle={styles.input}
+        placeholder="Correo"
+        keyboardType="visible-password"
+        rightIcon={{
+          type: "material-community",
+          name: "eye-outline",
+          color: "#0D47A1",
+          onPress: () => alert("Por favor ingresar tu correo electronico"),
+        }}
+        leftIcon={{
+          type: "material-community",
+          name: "account-circle-outline",
+          color: "#0D47A1",
+          size: 30,
+        }}
+      />
+      <Input
+        containerStyle={styles.input}
+        placeholder="Contraseña"
+        leftIcon={{
+          type: "material-community",
+          name: "security",
+          color: "#0D47A1",
+          size: 30,
+        }}
+        rightIcon={{
+          type: "material-community",
+          name: "eye-outline",
+          color: "#0D47A1",
+          onPress: () => alert("Por favor ingresar tu correo electronico"),
+        }}
+      />
+      <Button
+        title="Iniciar Sesion"
+        containerStyle={styles.Btn}
+        buttonStyle={{ backgroundColor: "#0D47A1" }}
+      />
+      <Text style={styles.txtcuenta}>
+        ¿No tienes cuenta?{" "}
+        <Text style={styles.txtCrearCuenta}>{""}Crear cuenta</Text>
       </Text>
-
       <Divider style={styles.divider1} />
+      <Text style={styles.TxtO}>O</Text>
 
-      <Text>O</Text>
-
-      <View>
-        <TouchableOpacity>
-          <Icon
-            size={24}
-            type="material-community"
-            name="google"
-            color="blue"
-            backgroundColor="#f000"
+      <View style={styles.VieBTnSocuiales}>
+        <TouchableOpacity style={styles.btnsociales}>
+          <SocialIcon
+            size={44}
+            type="google"
+            color="black"
+            iconColor="#fff"
+            title="Sign In With Facebook"
+            backgroundColor="#fff"
+            raised={true}
           />
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Icon
+        <TouchableOpacity style={styles.btnsociales}>
+          <SocialIcon
             size={24}
             type="material-community"
-            name="facebook"
+            type="facebook"
             color="yellow"
-            backgroundColor="#f000"
+            backgroundColor="#fff"
           />
         </TouchableOpacity>
+      </View>
+
+      <View style={styles.VieBTnSocuiales}>
+        <Text style={styles.txtSociales}>Google</Text>
+        <Text style={styles.txtSociales}>Facebook</Text>
       </View>
     </View>
   );
@@ -74,7 +115,39 @@ const styles = StyleSheet.create({
   divider1: {
     backgroundColor: "#0D47A1",
     height: 1,
-    width: "90%",
+    width: "85%",
     marginTop: 20,
+  },
+  input: {
+    width: "85%",
+    marginTop: 10,
+    height: 60,
+  },
+  Btn: {
+    marginTop: 20,
+    width: "85%",
+  },
+  txtcuenta: {
+    marginTop: 20,
+  },
+  txtCrearCuenta: {
+    color: "#0D47A1",
+    fontFamily: "Roboto",
+    fontSize: 15,
+  },
+  TxtO: {
+    fontWeight: "bold",
+    fontSize: 20,
+    marginTop: 20,
+    color: "#0D47A1",
+  },
+  VieBTnSocuiales: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  txtSociales: {
+    color: "#0D47A1",
+    textAlign: "center",
   },
 });
