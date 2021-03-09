@@ -28,4 +28,5 @@ components-Diferentes componentes
 ****alertas***
 yarn add react-native-easy-toast
 
+yarn add firebase
 
