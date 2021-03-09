@@ -4,11 +4,16 @@ import { StyleSheet, Text, View } from "react-native";
 const LoginFormulario = () => {
   return (
     <View>
-      <Text>Formulario</Text>
+      <Text style={styles.margen}>Formulario de kisama</Text>
     </View>
   );
 };
 
 export default LoginFormulario;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  margen: {
+    margin: 45,
+    textAlign: "center",
+  },
+});
