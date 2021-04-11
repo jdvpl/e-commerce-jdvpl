@@ -32,17 +32,18 @@ src que va a contener todos los archivos funcionales como componente y entre otr
 
 ### profile
 
-## tienda
+### tienda
+
+### Navigation\*los conectores entre Pantallas
+
+### utils-Codigo reusable
 
 ---
 
-# Navigation\*los conectores entre Pantallas
-
-# utils-Codigo reusable
-
 components-Diferentes componentes
 
-\***_alertas_**
+#### alertas
+
 `yarn add react-native-easy-toast`
 
 `yarn add firebase`
