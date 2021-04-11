@@ -11,6 +11,7 @@ import { validarSesion } from "../utils/Actions";
 const LoginFormulario = ({ toastref }) => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const navigartion = useNavigation();
 
   const inicarsesion = () => {
     if (isEmpty(email) || isEmpty(password)) {
@@ -37,6 +38,7 @@ const LoginFormulario = ({ toastref }) => {
       <View style={styles.vieww} />
 
       <Text style={styles.margen}>Iniciar Sesión</Text>
+
       <Input
         name={email}
         containerStyle={styles.input}
@@ -53,8 +55,15 @@ const LoginFormulario = ({ toastref }) => {
           color: "#0D47A1",
           size: 30,
         }}
+        onChangeText={(text) => {
+          setemail(text);
+        }}
+        value={email}
       />
       <Input
+        onChangeText={(text) => {
+          setpassword(text);
+        }}
         name={password}
         containerStyle={styles.input}
         placeholder="Contraseña"
@@ -70,6 +79,8 @@ const LoginFormulario = ({ toastref }) => {
           color: "#0D47A1",
           onPress: () => alert("Por favor ingresar tu correo electronico"),
         }}
+        secureTextEntry={true}
+        value={password}
       />
       <Button
         title="Iniciar Sesion"
@@ -77,7 +88,10 @@ const LoginFormulario = ({ toastref }) => {
         buttonStyle={{ backgroundColor: "#0D47A1" }}
         onPress={() => inicarsesion()}
       />
-      <Text style={styles.txtcuenta}>
+      <Text
+        style={styles.txtcuenta}
+        onPress={() => navigartion.navigate("registro")}
+      >
         ¿No tienes cuenta?{" "}
         <Text style={styles.txtCrearCuenta}>{""}Crear cuenta</Text>
       </Text>
