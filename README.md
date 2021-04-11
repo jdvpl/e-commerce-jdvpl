@@ -1,30 +1,36 @@
 # e-commerce-jdvpl
 
---------------isntalar Expo -----------------
+# instalar Expo
 
 `npm install -g expo-cli`
 
------------crear proyecto------------------
-`expo init nombre_poryecto`
-----escoger el que dice blank desde cero
+# crear proyecto
 
-------------ejecucion del proyecto-----------------
+`expo init nombre_poryecto`
+
+# escoger el que dice blank desde cero
+
+# ejecucion del proyecto
+
 `cd ecommerce-jdvpl`
+
 `yarn start`
 
--abre servidor y presionamos en Run on Android device/emulator
+---
+
+abre servidor y presionamos en Run on Android device/emulator
 se crean las carpetas necesarias del proyecto completo
 src que va a contener todos los archivos funcionales como componente y entre otros
 
 ---
 
-## screens-Pantallas que va a contener el proyecto
+### screens ---Pantallas que va a contener el proyecto
 
-## cuenta
+### cuenta
 
-## MItienda
+### MItienda
 
-## profile
+### profile
 
 ## tienda
 
