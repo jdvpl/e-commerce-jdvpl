@@ -1,4 +1,4 @@
-# e-commerce-jdvpl
+# E-commerce-jdvpl
 
 # instalar Expo
 
@@ -40,7 +40,7 @@ src que va a contener todos los archivos funcionales como componente y entre otr
 
 ---
 
-components-Diferentes componentes
+## components-Diferentes componentes
 
 #### alertas
 
